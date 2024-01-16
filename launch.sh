@@ -5,4 +5,4 @@ cd
 cd ./deepnude_qi
 
 # Run the script
-python3 installation_main.py
+python installation_main.py
