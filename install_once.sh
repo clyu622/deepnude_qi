@@ -10,6 +10,6 @@ sudo apt-get install python3-pip
 sudo apt-get install libgl1 
 
 # Install necessary Python libraries
-pip3 install opencv-python ultralytics flickr_api Pillow mediapipe webuiapi
+pip3 install opencv-python ultralytics lapx flickr_api Pillow mediapipe webuiapi
 
 echo "Installation complete!"

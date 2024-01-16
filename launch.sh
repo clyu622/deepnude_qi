@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Navigate to the script directory
-cd /home/pi/DEEPNUDE_QI
+cd 
+cd ./deepnude_qi
 
 # Run the script
 python3 installation_main.py

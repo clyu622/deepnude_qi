@@ -16,8 +16,8 @@ import flickr_api
 
 
 ######### Please Check These Important Parameters Before Running #########
-STILL_DURATION = 3  # seconds to the audience stillness check
-THRESHOLD = 6  # pixels to the audience stillne"ss check
+STILL_DURATION = 2  # seconds to the audience stillness check
+THRESHOLD = 10  # pixels to the audience stillne"ss check
 FLICKR_KEY = "e133d51350fbf111787d8d0e7e833a57"
 FLICKR_SECRET = "a762ce7ba5b6dd15"
 HOST_IP = "136.38.105.217"  # The IP address of the Stable Diffusion server
@@ -125,9 +125,9 @@ def cam_capture_loop():
         print("Error: Camera stream not available.")
         exit()
 
-    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-    # cap.set(cv2.CAP_PROP_AUTOFOCUS, 1)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+    cap.set(cv2.CAP_PROP_AUTOFOCUS, 1)
 
     previous_box = None
     stillness_start_time = None
