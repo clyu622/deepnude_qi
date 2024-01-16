@@ -128,7 +128,13 @@ def cam_capture_loop():
     # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
     # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
     # cap.set(cv2.CAP_PROP_AUTOFOCUS, 1)
-
+    picam2 = Picamera2()
+    picam2.configure(
+        picam2.create_preview_configuration(
+            main={"format": "XRGB8888", "size": (1920, 1080)}
+        )
+    )
+    picam2.start()
     previous_box = None
     stillness_start_time = None
     stillness_duration = STILL_DURATION  # Time in seconds to check for stillness
@@ -136,12 +142,7 @@ def cam_capture_loop():
 
     try:
         while True:
-            ret, frame = cap.read()
-
-            if not ret:
-                print("Error: Unable to read camera frame.")
-                break
-
+            frame = picam2.capture_array()
             h, w, _ = frame.shape
             start = int((w - h) / 2)
             cropped_frame = frame[:, start : start + h]
